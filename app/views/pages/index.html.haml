@@ -1,0 +1,15 @@
+%h1 Welcome to the app
+.row
+  .col-xs-6.col-xs-offset-3
+    - unless logged_in?
+      Please log in
+    %h1 Sign in
+    = form_tag signin_path do   
+      = label_tag :email, "Email", class: "form-control"
+      = text_field_tag :email, "Email", class: "form-control"
+      = label_tag :password, "Password", class: "form-control"
+      = password_field_tag :password, "Password", class: "form-control"
+      = submit_tag "Sign in", class: "btn btn-primary form-control"
+
+
+

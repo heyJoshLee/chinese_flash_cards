@@ -1,0 +1,6 @@
+%h4= link_to "All cards", cards_path
+%h1= @card.chinese
+%h2= @card.english
+
+%p= link_to "edit", edit_card_path(@card)
+.character_section.tree= @card.breakdown_html.html_safe unless @card.breakdown_html.nil?

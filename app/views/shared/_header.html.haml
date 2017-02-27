@@ -1,0 +1,9 @@
+#main_header.row
+  .col-xs-4.main_header_section
+    %h2= link_to "Home", root_path
+  .col-xs-4.main_header_section
+    %h2= link_to "Practice", practice_path
+  - if logged_in?
+    .col-xs-4.main_header_section
+      %h2= link_to "Cards", user_cards_path(current_user)
+

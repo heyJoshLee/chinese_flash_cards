@@ -1,0 +1,17 @@
+%table.table.table-striped
+  %thead
+    %th English
+    %th Chinese
+    %th Pinyin
+    %th other
+    %th Destroy
+  %tbody
+    - @cards.each do |card|
+      %tr
+        %td.col-xs-1= card.english
+        %td.col-xs-1= link_to card.chinese, card_path(card)
+        %td.col-xs-1= card.pinyin
+        %td.col-xs-5.accordion
+          %h3 Character Breakdown
+          .tree= card.breakdown_html.html_safe    
+        %td.col-xs-1= link_to "Destroy", user_card_path(current_user, card), remote: true, method: "DELETE", data: {confirm: "Are you sure you want to delete this card?"}

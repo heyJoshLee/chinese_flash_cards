@@ -1,0 +1,12 @@
+.row
+  .col-xs-6
+    = bootstrap_form_for([@user, @card || Card.new]) do |f|
+      = f.text_field :english
+      = f.text_field :chinese
+      #fetch_character_button.btm.btn-primary Fetch
+      = f.text_field :pinyin
+      = f.text_area :notes
+      = f.text_area :breakdown_html
+      = f.submit (@card ? "Save Card" : "Create Card "), class: "btn btn-primary"
+  .col-xs-6
+    #character_form_preview.tree

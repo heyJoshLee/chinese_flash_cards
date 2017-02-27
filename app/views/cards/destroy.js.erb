@@ -1,0 +1,2 @@
+$("#cards_container").html("<%= escape_javascript render(:partial => 'cards/cards', :locals => {:cards => @cards}) %>")
+setAccordion();

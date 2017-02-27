@@ -1,0 +1,29 @@
+#guess_card_info
+  .col-xs-offset-4
+    %h1= @card.chinese
+    .card_hidden_info
+      %h2= @card.pinyin
+      %h2= @card.english
+      %div= @card.notes
+  .tree.card_hidden_info= @card.breakdown_html.html_safe
+#edit_guessing_card_info.card_hidden_info Edit Card
+
+#guessing_card_edit_form
+  =render "cards/form"
+
+
+.col-xs-offset-4#show_answer_button_container
+  .btn.btn-primary#show_answer show answer
+
+
+
+.row#answer_buttons
+  .col-xs-12
+    .row
+      .col-xs-6
+        = link_to attempt_practice_path(correct: true, card_id: @card.id), method: "POST", remote: true do
+          .btn.btn-success I know it!
+      .col-xs-6
+        = link_to attempt_practice_path(correct: false, card_id: @card.id), method: "POST", remote: true do
+          .btn.btn-danger I don't know it
+
